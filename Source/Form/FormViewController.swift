@@ -8,7 +8,11 @@ open class FormViewController: UIViewController {
 
     public init() {
         SwiftyFormLog("super init")
-        self.tableViewStyle = .grouped
+        if #available(iOS 13.0, *) {
+            self.tableViewStyle = .insetGrouped
+        } else {
+            self.tableViewStyle = .grouped
+        }
         super.init(nibName: nil, bundle: nil)
     }
 

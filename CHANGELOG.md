@@ -1,5 +1,10 @@
 ## 📄 Change Log
 
+### 1.8.7
+
+ * Contributions by Benoit Deldicque. Thank you.
+   Add default table view style to inset grouped starting iOS 14.
+
 ### 1.8.6
 
  * Contributions by Luca Pizzini. Thank you.
