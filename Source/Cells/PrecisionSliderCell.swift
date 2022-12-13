@@ -220,15 +220,24 @@ public class PrecisionSliderToggleCell: UITableViewCell, CellHeightProvider, Sel
 
 	// MARK: AssignAppearance
 
+    public var isUsingTintColor: Bool = false
+
 	public func assignDefaultColors() {
+        isUsingTintColor = true
         textLabel?.textColor = titleTextColor
         detailTextLabel?.textColor = detailTextColor
 	}
 
 	public func assignTintColors() {
+        isUsingTintColor = false
 		textLabel?.textColor = tintColor
 		detailTextLabel?.textColor = tintColor
 	}
+
+    public override func tintColorDidChange() {
+        super.tintColorDidChange()
+        if isUsingTintColor == true { assignTintColors() }
+    }
 }
 
 extension PrecisionSliderCellModel {

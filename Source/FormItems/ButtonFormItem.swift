@@ -10,6 +10,8 @@ public class ButtonFormItem: FormItem, CustomizableTitleLabel, CustomizableButto
 	public var title: String = ""
     
     public var titleTextColor: UIColor = Colors.text
+
+    public var useTintColor: Bool = true
     
     public var titleFont: UIFont = UIFont.preferredFont(forTextStyle: .body)
 

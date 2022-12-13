@@ -17,6 +17,7 @@ class ButtonsViewController: FormViewController {
 
 	lazy var button0: ButtonFormItem = {
 		let instance = ButtonFormItem()
+        instance.useTintColor = false
 		instance.title = "Button 0"
 		instance.action = { [weak self] in
 			self?.form_simpleAlert("Button 0", "Button clicked")

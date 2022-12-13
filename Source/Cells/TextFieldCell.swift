@@ -379,15 +379,23 @@ public class TextFieldFormItemCell: UITableViewCell, AssignAppearance {
 	public override func resignFirstResponder() -> Bool {
 		textField.resignFirstResponder()
 	}
-    
+
+    public var isUsingTintColor: Bool = false
+
     public func assignDefaultColors() {
+        isUsingTintColor = false
         titleLabel.textColor = model.titleTextColor
     }
     
     public func assignTintColors() {
+        isUsingTintColor = true
         titleLabel.textColor = tintColor
     }
 
+    public override func tintColorDidChange() {
+        super.tintColorDidChange()
+        if isUsingTintColor == true { assignTintColors() }
+    }
 }
 
 extension TextFieldFormItemCell: UITextFieldDelegate {

@@ -219,15 +219,24 @@ public class DatePickerToggleCell: UITableViewCell, SelectRowDelegate, DontColla
 
 	// MARK: AssignAppearance
 
+    public var isUsingTintColor: Bool = false
+
 	public func assignDefaultColors() {
+        isUsingTintColor = false
         textLabel?.textColor = model.titleTextColor
         detailTextLabel?.textColor = model.detailTextColor
 	}
 
 	public func assignTintColors() {
+        isUsingTintColor = true
 		textLabel?.textColor = tintColor
 		detailTextLabel?.textColor = tintColor
 	}
+
+    public override func tintColorDidChange() {
+        super.tintColorDidChange()
+        if isUsingTintColor == true { assignTintColors() }
+    }
 }
 
 /**

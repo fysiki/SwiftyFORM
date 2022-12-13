@@ -43,7 +43,9 @@ public class SwitchCell: UITableViewCell, AssignAppearance {
 		SwiftyFormLog("set value \(value), animated \(animated)")
 		switchView.setOn(value, animated: animated)
 	}
-    
+
+    public var isUsingTintColor: Bool = false
+
     public func assignDefaultColors() {
         textLabel?.textColor = model.titleTextColor
     }

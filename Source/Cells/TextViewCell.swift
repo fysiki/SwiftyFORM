@@ -228,15 +228,23 @@ public class TextViewCell: UITableViewCell, AssignAppearance {
 	public override func resignFirstResponder() -> Bool {
 		textView.resignFirstResponder()
 	}
-    
+
+    public var isUsingTintColor: Bool = false
+
     public func assignDefaultColors() {
+        isUsingTintColor = false
         textView.textColor = model.titleTextColor
     }
     
     public func assignTintColors() {
+        isUsingTintColor = true
         textView.textColor = tintColor
     }
-    
+
+    public override func tintColorDidChange() {
+        super.tintColorDidChange()
+        if isUsingTintColor == true { assignTintColors() }
+    }
 }
 
 extension TextViewCell: UITextViewDelegate {

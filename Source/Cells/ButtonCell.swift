@@ -6,6 +6,7 @@ public struct ButtonCellModel {
     var titleFont: UIFont = UIFont.preferredFont(forTextStyle: .body)
     var textAlignment: NSTextAlignment = .center
     var titleTextColor: UIColor = Colors.text
+    var tintTitleText: Bool = true
     var backgroundColor: UIColor? = nil
 
 	var action: () -> Void = {
@@ -21,8 +22,14 @@ public class ButtonCell: UITableViewCell, SelectRowDelegate, AssignAppearance {
 		self.model = model
 		super.init(style: .default, reuseIdentifier: nil)
 		loadWithModel(model)
-        
-        assignDefaultColors()
+
+        isUsingTintColor = model.tintTitleText
+
+        if isUsingTintColor == false {
+            assignDefaultColors()
+        } else {
+            assignTintColors()
+        }
 	}
 
 	public required init(coder aDecoder: NSCoder) {
@@ -44,13 +51,21 @@ public class ButtonCell: UITableViewCell, SelectRowDelegate, AssignAppearance {
 
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
-    
+
+    public var isUsingTintColor: Bool = true
+
     public func assignDefaultColors() {
+        isUsingTintColor = false
         textLabel?.textColor = model.titleTextColor
     }
     
     public func assignTintColors() {
+        isUsingTintColor = true
         textLabel?.textColor = tintColor
     }
-    
+
+    public override func tintColorDidChange() {
+        super.tintColorDidChange()
+        if isUsingTintColor == true { assignTintColors() }
+    }
 }

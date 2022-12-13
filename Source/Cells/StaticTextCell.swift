@@ -31,15 +31,23 @@ public class StaticTextCell: UITableViewCell, AssignAppearance {
         textLabel?.font = model.titleFont
         detailTextLabel?.font = model.detailFont
 	}
-    
+
+    public var isUsingTintColor: Bool = false
+
     public func assignDefaultColors() {
+        isUsingTintColor = false
         textLabel?.textColor = model.titleTextColor
         detailTextLabel?.textColor = model.detailTextColor
     }
     
     public func assignTintColors() {
+        isUsingTintColor = true
         textLabel?.textColor = tintColor
         detailTextLabel?.textColor = tintColor
     }
 
+    public override func tintColorDidChange() {
+        super.tintColorDidChange()
+        if isUsingTintColor == true { assignTintColors() }
+    }
 }
