@@ -111,5 +111,7 @@ public class OptionRowFormItem: FormItem, CustomizableTitleLabel {
 	public var selected: Bool = false
 
 	public var context: AnyObject?
-    
+
+    public var selectionStyle = UITableViewCell.SelectionStyle.default
+
 }

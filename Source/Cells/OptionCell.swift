@@ -23,6 +23,7 @@ public class OptionCell: UITableViewCell, SelectRowDelegate {
 		} else {
 			accessoryType = .none
 		}
+        selectionStyle = model.selectionStyle
 	}
 
 	public func form_didSelectRow(indexPath: IndexPath, tableView: UITableView) {
