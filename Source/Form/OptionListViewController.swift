@@ -24,6 +24,7 @@ class OptionListViewController: FormViewController, SelectOptionDelegate {
 			option.title = optionRow.title
 			option.context = optionRow
 			option.selected = (optionRow === optionField.selected)
+            if optionField.popOnSelection == false { option.selectionStyle = .none }
 			builder.append(option)
 		}
 	}
@@ -35,6 +36,7 @@ class OptionListViewController: FormViewController, SelectOptionDelegate {
 
 		SwiftyFormLog("select option \(option.title)")
 		selectOptionHandler(selected)
+        if optionField.popOnSelection == false { reloadForm() }
 	}
 
 }

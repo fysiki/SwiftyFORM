@@ -222,6 +222,7 @@ class PopulateTableView: FormItemVisitor {
         model.titleTextColor = object.titleTextColor
         model.detailFont = object.detailFont
         model.detailTextColor = object.detailTextColor
+        model.popOnSelection = object.popOnSelection
 
 		model.valueDidChange = { [weak object] (value: OptionRowModel?) in
 			SwiftyFormLog("propagate from cell to model. value \(String(describing: value))")

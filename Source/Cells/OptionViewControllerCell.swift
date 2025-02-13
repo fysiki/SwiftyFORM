@@ -10,6 +10,7 @@ public struct OptionViewControllerCellModel {
     var detailTextColor: UIColor = Colors.secondaryText
 	var optionField: OptionPickerFormItem?
 	var selectedOptionRow: OptionRowModel?
+    var popOnSelection = true
 
 	var valueDidChange: (OptionRowModel?) -> Void = { (value: OptionRowModel?) in
 		SwiftyFormLog("value \(String(describing: value))")
@@ -94,7 +95,7 @@ public class OptionViewControllerCell: UITableViewCell, SelectRowDelegate {
 
 		let childViewController = OptionListViewController(optionField: optionField) { [weak self] (selected: OptionRowModel) in
 			self?.viaOptionList_userPickedOption(selected)
-			nc.popViewController(animated: true)
+            if self?.model.popOnSelection == true { nc.popViewController(animated: true) }
 		}
 		nc.pushViewController(childViewController, animated: true)
 

@@ -40,6 +40,9 @@ public class OptionPickerFormItem: FormItem, CustomizableLabel {
     
 	public var options = [OptionRowModel]()
 
+    /// If `true`, child controller will pop to previous one on option selection.
+    public var popOnSelection = true
+
 	@discardableResult
 	public func append(_ name: String, identifier: String? = nil) -> Self {
 		options.append(OptionRowModel(name, identifier ?? name))
