@@ -48,6 +48,7 @@ class ButtonsViewController: FormViewController {
         instance.title = "Button 3 (popover)"
         instance.titleTextColor = UIColor.black
         instance.backgroundColor = UIColor.yellow
+        instance.accessoryType = .disclosureIndicator
         instance.action = { [weak self] frame in
             let alert = UIAlertController(title: "Button 3", message: "Button clicked", preferredStyle: UIAlertController.Style.actionSheet)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
