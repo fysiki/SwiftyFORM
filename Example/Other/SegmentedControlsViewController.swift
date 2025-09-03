@@ -50,7 +50,7 @@ class SegmentedControlsViewController: FormViewController {
 	lazy var submitButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Place order"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			if let actualSelf = self {
 				actualSelf.form_simpleAlert("My Receipt", actualSelf.receipt)
 			}
@@ -70,7 +70,7 @@ class SegmentedControlsViewController: FormViewController {
 	lazy var randomizeButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Randomize"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.randomize()
 		}
 		return instance

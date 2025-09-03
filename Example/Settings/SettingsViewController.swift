@@ -53,7 +53,7 @@ class SettingsViewController: FormViewController {
 	lazy var resetUserDefaultsButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Reset UserDefaults"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.form_simpleAlert("Reset UserDefaults", "Button clicked")
 		}
 		return instance
@@ -62,7 +62,7 @@ class SettingsViewController: FormViewController {
 	lazy var deleteCacheButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Delete Cache"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.form_simpleAlert("Delete Cache", "Button clicked")
 		}
 		return instance

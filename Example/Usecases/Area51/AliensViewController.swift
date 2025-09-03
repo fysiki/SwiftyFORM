@@ -20,7 +20,7 @@ class AliensViewController: FormViewController {
 	lazy var button0: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Submit"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			if let stepperValue = self?.stepperForm0.value {
 				self?.form_simpleAlert("Aliens encounters", "I have encountered \(stepperValue) aliens!")
 			}

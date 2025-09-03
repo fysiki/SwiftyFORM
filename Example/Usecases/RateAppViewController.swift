@@ -30,7 +30,7 @@ class RateAppViewController: FormViewController {
 	lazy var submitButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Submit My Rating"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.submitMyRating()
 		}
 		return instance

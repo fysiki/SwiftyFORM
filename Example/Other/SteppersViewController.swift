@@ -27,7 +27,7 @@ class SteppersViewController: FormViewController {
 	lazy var submitButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Submit"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			let catCount = self?.catStepper.value ?? 0
 			let dogCount = self?.dogStepper.value ?? 0
 			self?.form_simpleAlert("Submit", "There are \(catCount) cats and \(dogCount) dogs!")

@@ -9,7 +9,7 @@ public struct ButtonCellModel {
     var tintTitleText: Bool = true
     var backgroundColor: UIColor? = nil
 
-	var action: () -> Void = {
+    var action: (_ frame: CGRect) -> Void = { _ in
 		SwiftyFormLog("action")
 	}
 
@@ -47,7 +47,14 @@ public class ButtonCell: UITableViewCell, SelectRowDelegate, AssignAppearance {
 		// hide keyboard when the user taps this kind of row
 		tableView.form_firstResponder()?.resignFirstResponder()
 
-		model.action()
+        let rectInTableView = tableView.rectForRow(at: indexPath)
+
+        if let vc = tableView.parentViewController() {
+            // Convert it to the coordinate system of the controller's main view
+            let rectInSuperview = tableView.convert(rectInTableView, to: vc.view)
+            model.action(rectInSuperview)
+        }
+
 
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
@@ -67,5 +74,18 @@ public class ButtonCell: UITableViewCell, SelectRowDelegate, AssignAppearance {
     public override func tintColorDidChange() {
         super.tintColorDidChange()
         if isUsingTintColor == true { assignTintColors() }
+    }
+}
+
+extension UIView {
+    func parentViewController() -> UIViewController? {
+        var responder: UIResponder? = self
+        while let r = responder {
+            if let vc = r as? UIViewController {
+                return vc
+            }
+            responder = r.next
+        }
+        return nil
     }
 }

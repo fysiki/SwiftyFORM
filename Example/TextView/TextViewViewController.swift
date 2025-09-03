@@ -43,7 +43,7 @@ class TextViewViewController: FormViewController {
 	lazy var randomizeButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Randomize"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.randomize()
 		}
 		return instance
@@ -52,7 +52,7 @@ class TextViewViewController: FormViewController {
 	lazy var clearButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Clear"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.clear()
 		}
 		return instance

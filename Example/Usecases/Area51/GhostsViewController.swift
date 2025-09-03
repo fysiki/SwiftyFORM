@@ -46,7 +46,7 @@ class GhostsViewController: FormViewController {
 	lazy var submitButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Submit"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.submit()
 		}
 		return instance

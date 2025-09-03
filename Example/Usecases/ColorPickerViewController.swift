@@ -78,7 +78,7 @@ class ColorPickerViewController: FormViewController {
 	lazy var randomizeButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Randomize"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.randomize()
 		}
 		return instance

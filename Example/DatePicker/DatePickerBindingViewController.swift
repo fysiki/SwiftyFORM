@@ -39,7 +39,7 @@ class DatePickerBindingViewController: FormViewController {
 	lazy var incrementButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Next Day"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.increment()
 		}
 		return instance
@@ -48,7 +48,7 @@ class DatePickerBindingViewController: FormViewController {
 	lazy var decrementButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Previous Day"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.decrement()
 		}
 		return instance

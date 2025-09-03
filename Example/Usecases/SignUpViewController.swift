@@ -117,7 +117,7 @@ class SignUpViewController: FormViewController {
 	lazy var randomizeButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Randomize"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.randomize()
 		}
 		return instance
@@ -144,7 +144,7 @@ class SignUpViewController: FormViewController {
 	lazy var jsonButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "View JSON"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			if let vc = self {
 				DebugViewController.showJSON(vc, jsonData: vc.formBuilder.dump())
 			}

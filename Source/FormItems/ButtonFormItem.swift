@@ -19,6 +19,6 @@ public class ButtonFormItem: FormItem, CustomizableTitleLabel, CustomizableButto
     
     public var backgroundColor: UIColor? = nil
 
-	public var action: () -> Void = {}
-    
+    public var action: (_ frame: CGRect) -> Void = { _ in }
+
 }

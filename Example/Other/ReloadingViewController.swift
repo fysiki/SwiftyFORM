@@ -33,7 +33,7 @@ class ReloadingViewController: FormViewController {
 	lazy var reloadButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Reload Form"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.reloadForm()
 		}
 		return instance

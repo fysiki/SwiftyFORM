@@ -19,7 +19,7 @@ class StoryboardDemoViewController: FormViewController {
 	lazy var voteButton: ButtonFormItem = {
 		let instance = ButtonFormItem()
 		instance.title = "Submit Vote"
-		instance.action = { [weak self] in
+		instance.action = { [weak self] _ in
 			self?.voteButtonAction()
 		}
 		return instance
